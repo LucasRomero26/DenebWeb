@@ -1,17 +1,16 @@
-// vite.config.js
 import { defineConfig } from 'vite';
-import imagePresets from 'vite-plugin-image-presets';
-
+import react from '@vitejs/plugin-react';
 export default defineConfig({
-  plugins: [
-    imagePresets({
-      opam: {
-        src: './src/images/OPAM.webp',
-        sizes: [400, 800],
-        formats: {
-          webp: { quality: 80 },
-        },
-      },
-    }),
-  ],
+  plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          markdown: ['react-markdown', 'rehype-raw']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1500 // Temporal para suprimir warnings
+  }
 });
