@@ -386,17 +386,17 @@ function Home() {
   ];
 
   const team = [
-    { name: "Juan Bermejo", role: "Design Leader", avatar: "src/Img/2.svg" },
-    { name: "Jose Mendoza", role: "Archivist", avatar: "src/Img/4.svg" },
+    { name: "Juan Bermejo", role: "Design Leader", avatar: "src/Img/2.webp" },
+    { name: "Jose Mendoza", role: "Archivist", avatar: "src/Img/4.webp" },
     {
       name: "Lucas Romero",
       role: "Communications Officer",
-      avatar: "src/Img/1.svg",
+      avatar: "src/Img/1.webp",
     },
     {
       name: "Mariana Barrero",
       role: "Resource and Facilities Manager",
-      avatar: "src/Img/3.svg",
+      avatar: "src/Img/3.webp",
     },
   ];
 
