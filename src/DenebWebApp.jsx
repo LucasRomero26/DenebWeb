@@ -14,9 +14,9 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
-import heroImg from "./Img/Hero.webp";
-import proyectImg from "./Img/DG.svg";
-import contactImg from "./Img/Contact.webp";
+import heroImg from "../public/images/Hero.webp";
+import proyectImg from "../public/images//DG.svg";
+import contactImg from "../public/images/Contact.webp";
 import {
   Menu,
   X,
@@ -54,17 +54,17 @@ const PrimaryButton = ({ children, href = "#" }) => (
 /* -------------------------------------------------------------------------- */
 
 // Importa las imágenes para el contenido
-import videoconferenciaImg from "./Img/VideoConferencia.webp";
-import circuitoOriginalImg from "./Img/Amplificacion.webp";
-import respuestaFrecuenciaImg from "./Img/OPAMDISENO.webp";
-import mosfetImg from "./Img/OPAMDISENO.webp";
+import videoconferenciaImg from "../public/images/VideoConferencia.webp";
+import circuitoOriginalImg from "../public/images/Amplificacion.webp";
+import respuestaFrecuenciaImg from "../public/images/OPAMDISENO.webp";
+import mosfetImg from "../public/images/OPAMDISENO.webp";
 
 export const projectsData = [
   {
     id: 1,
     title: "Construcción OPAMP",
     desc: "La primera etapa en la construcción de un OPAMP es la identificación del proyecto, donde se analizan necesidades, requisitos y restricciones del diseño. Se definen objetivos clave y desafíos técnicos para garantizar un desarrollo eficiente y estructurado. (Clic para leer más)",
-    img: "src/Img/OPAM.webp",
+    img: "../public/images/OPAM.webp",
     sections: [
       {
         id: "introduccion",
@@ -244,7 +244,7 @@ Prácticamente imperceptible en un entorno de oficina normal.
     id: 2,
     title: "Construcción Pre-Amplificador de Audio",
     desc: "Caso de estudio de modificación estética y acústica de un micrófono de condensador moderno.",
-    img: "src/Img/PreAmplificador.webp",
+    img: "../public/images/PreAmplificador.webp",
     sections: [
       {
         id: "resumen",
@@ -386,17 +386,17 @@ function Home() {
   ];
 
   const team = [
-    { name: "Juan Bermejo", role: "Design Leader", avatar: "src/Img/2.webp" },
-    { name: "Jose Mendoza", role: "Archivist", avatar: "src/Img/4.webp" },
+    { name: "Juan Bermejo", role: "Design Leader", avatar: "../public/images/2.webp" },
+    { name: "Jose Mendoza", role: "Archivist", avatar: "../public/images/4.webp" },
     {
       name: "Lucas Romero",
       role: "Communications Officer",
-      avatar: "src/Img/1.webp",
+      avatar: "../public/images/1.webp",
     },
     {
       name: "Mariana Barrero",
       role: "Resource and Facilities Manager",
-      avatar: "src/Img/3.webp",
+      avatar: "../public/images/3.webp",
     },
   ];
 
