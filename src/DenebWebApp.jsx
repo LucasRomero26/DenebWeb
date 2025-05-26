@@ -14,9 +14,9 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
-import heroImg from "./Img/Hero.jpg";
+import heroImg from "./Img/Hero.webp";
 import proyectImg from "./Img/DG.svg";
-import contactImg from "./Img/Contact.png";
+import contactImg from "./Img/Contact.webp";
 import {
   Menu,
   X,
@@ -54,17 +54,17 @@ const PrimaryButton = ({ children, href = "#" }) => (
 /* -------------------------------------------------------------------------- */
 
 // Importa las imágenes para el contenido
-import videoconferenciaImg from "./Img/VideoConferencia.png";
-import circuitoOriginalImg from "./Img/Amplificacion.png";
-import respuestaFrecuenciaImg from "./Img/OPAMDISENO.png";
-import prototipoFinalImg from "./Img/PreAmplificador.png";
+import videoconferenciaImg from "./Img/VideoConferencia.webp";
+import circuitoOriginalImg from "./Img/Amplificacion.webp";
+import respuestaFrecuenciaImg from "./Img/OPAMDISENO.webp";
+import mosfetImg from "./Img/OPAMDISENO.webp";
 
 export const projectsData = [
   {
     id: 1,
     title: "Construcción OPAMP",
     desc: "La primera etapa en la construcción de un OPAMP es la identificación del proyecto, donde se analizan necesidades, requisitos y restricciones del diseño. Se definen objetivos clave y desafíos técnicos para garantizar un desarrollo eficiente y estructurado. (Clic para leer más)",
-    img: "src/Img/OPAM.jpg",
+    img: "src/Img/OPAM.webp",
     sections: [
       {
         id: "introduccion",
@@ -117,6 +117,11 @@ Imagina una puerta automática que abre o cierra el paso de la corriente con só
 
 1. - Gate (puerta): recibe la señal de control.
 2. - Drain y Source: permiten o bloquean el flujo.
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${mosfetImg}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 3: MOSFET NMOS</p>
+</div>
 
 
         `,
@@ -239,18 +244,13 @@ Prácticamente imperceptible en un entorno de oficina normal.
     id: 2,
     title: "Construcción Pre-Amplificador de Audio",
     desc: "Caso de estudio de modificación estética y acústica de un micrófono de condensador moderno.",
-    img: "src/Img/PreAmplificador.png",
+    img: "src/Img/PreAmplificador.webp",
     sections: [
       {
         id: "resumen",
         heading: "Resumen del Proyecto",
         content: `
 ## Resumen del Proyecto
-
-<div style="text-align: center; margin: 20px 0;">
-  <img src="src/Img/preamplificador_esquema.jpg" alt="Esquema del preamplificador" style="max-width: 100%; height: auto; border-radius: 8px;" />
-  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Esquema del preamplificador de audio</p>
-</div>
 
 Objetivos de la modificación, requisitos del cliente y alcance del trabajo realizado.
         `,
@@ -261,11 +261,6 @@ Objetivos de la modificación, requisitos del cliente y alcance del trabajo real
         content: `
 ## Rediseño del Circuito
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="src/Img/circuito_preamplificador.jpg" alt="Circuito del preamplificador" style="max-width: 100%; height: auto; border-radius: 8px;" />
-  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Circuito rediseñado del preamplificador</p>
-</div>
-
 Adición de filtros selectivos y modificación de la polarización para mejorar la sensibilidad.
         `,
       },
@@ -275,11 +270,6 @@ Adición de filtros selectivos y modificación de la polarización para mejorar 
         content: `
 ## Acabado Estético
 
-<div style="text-align: center; margin: 20px 0;">
-  <img src="src/Img/acabado_estetico.jpg" alt="Acabado estético" style="max-width: 100%; height: auto; border-radius: 8px;" />
-  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Acabado estético final del dispositivo</p>
-</div>
-
 Aplicación de pintura electrostática y grabado láser personalizado para branding del estudio.
         `,
       },
@@ -288,11 +278,6 @@ Aplicación de pintura electrostática y grabado láser personalizado para brand
         heading: "Pruebas de Calidad",
         content: `
 ## Pruebas de Calidad
-
-<div style="text-align: center; margin: 20px 0;">
-  <img src="src/Img/pruebas_calidad.jpg" alt="Pruebas de calidad" style="max-width: 100%; height: auto; border-radius: 8px;" />
-  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Proceso de pruebas de calidad</p>
-</div>
 
 Ensayos de ruido de fondo, respuesta transitoria y verificación de compatibilidad con interfaces.
         `,
