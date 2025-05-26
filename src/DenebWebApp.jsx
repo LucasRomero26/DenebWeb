@@ -14,9 +14,9 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
-import heroImg from "../public/images/Hero.webp";
-import proyectImg from "../public/images//DG.svg";
-import contactImg from "../public/images/Contact.webp";
+import heroImg from "../src/images/Hero.webp";
+import proyectImg from "../src/images//DG.svg";
+import contactImg from "../src/images/Contact.webp";
 import {
   Menu,
   X,
@@ -54,17 +54,23 @@ const PrimaryButton = ({ children, href = "#" }) => (
 /* -------------------------------------------------------------------------- */
 
 // Importa las imágenes para el contenido
-import videoconferenciaImg from "../public/images/VideoConferencia.webp";
-import circuitoOriginalImg from "../public/images/Amplificacion.webp";
-import respuestaFrecuenciaImg from "../public/images/OPAMDISENO.webp";
-import mosfetImg from "../public/images/OPAMDISENO.webp";
+import videoconferenciaImg from "../src/images/VideoConferencia.webp";
+import circuitoOriginalImg from "../src/images/Amplificacion.webp";
+import respuestaFrecuenciaImg from "../src/images/OPAMDISENO.webp";
+import mosfetImg from "../src/images/OPAMDISENO.webp";
+import OPAMImg from "../src/images/OPAM.webp";
+import PreAmplificadorImg from "../src/images/PreAmplificador.webp";
+import avatar1 from "../src/images/1.webp";
+import avatar2 from "../src/images/2.webp";
+import avatar3 from "../src/images/3.webp";
+import avatar4 from "../src/images/4.webp";
 
 export const projectsData = [
   {
     id: 1,
     title: "Construcción OPAMP",
     desc: "La primera etapa en la construcción de un OPAMP es la identificación del proyecto, donde se analizan necesidades, requisitos y restricciones del diseño. Se definen objetivos clave y desafíos técnicos para garantizar un desarrollo eficiente y estructurado. (Clic para leer más)",
-    img: "../public/images/OPAM.webp",
+    img: OPAMImg,
     sections: [
       {
         id: "introduccion",
@@ -244,7 +250,7 @@ Prácticamente imperceptible en un entorno de oficina normal.
     id: 2,
     title: "Construcción Pre-Amplificador de Audio",
     desc: "Caso de estudio de modificación estética y acústica de un micrófono de condensador moderno.",
-    img: "../public/images/PreAmplificador.webp",
+    img: PreAmplificadorImg,
     sections: [
       {
         id: "resumen",
@@ -386,17 +392,17 @@ function Home() {
   ];
 
   const team = [
-    { name: "Juan Bermejo", role: "Design Leader", avatar: "/public/images/2.webp" },
-    { name: "Jose Mendoza", role: "Archivist", avatar: "/public/images/4.webp" },
+    { name: "Juan Bermejo", role: "Design Leader", avatar: avatar2 },
+    { name: "Jose Mendoza", role: "Archivist", avatar: avatar4 },
     {
       name: "Lucas Romero",
       role: "Communications Officer",
-      avatar: "/public/images/1.webp",
+      avatar: avatar1,
     },
     {
       name: "Mariana Barrero",
       role: "Resource and Facilities Manager",
-      avatar: "/public/images/3.webp",
+      avatar: avatar3,
     },
   ];
 
