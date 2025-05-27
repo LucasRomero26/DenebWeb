@@ -40,14 +40,15 @@ const SectionTitle = ({ children }) => (
   </h2>
 );
 
-const PrimaryButton = ({ children, href = "#" }) => (
-  <a
-    href={href}
+const PrimaryButton = ({ children, to = "#" }) => (
+  <Link
+    to={to}
     className="inline-block px-6 py-2 rounded-md bg-blue-500 hover:bg-blue-600 text-slate-50 font-medium transition"
   >
     {children}
-  </a>
+  </Link>
 );
+
 
 /* -------------------------------------------------------------------------- */
 /* Datos de proyectos                                                          */
@@ -57,13 +58,19 @@ const PrimaryButton = ({ children, href = "#" }) => (
 import videoconferenciaImg from "../src/images/VideoConferencia.webp";
 import circuitoOriginalImg from "../src/images/Amplificacion.webp";
 import respuestaFrecuenciaImg from "../src/images/OPAMDISENO.webp";
-import mosfetImg from "../src/images/OPAMDISENO.webp";
+import mosfetImg from "../src/images/mosfet.webp";
 import OPAMImg from "../src/images/OPAM.webp";
 import PreAmplificadorImg from "../src/images/PreAmplificador.webp";
 import avatar1 from "../src/images/1.webp";
 import avatar2 from "../src/images/2.webp";
 import avatar3 from "../src/images/3.webp";
 import avatar4 from "../src/images/4.webp";
+import espejo from "../src/images/Espejodecorriente.webp"
+import parDiferencial from "../src/images/Pardiferencial.webp"
+import ganancia from "../src/images/Ganancia.webp"
+import esquematico from "../src/images/EsquematicoFinal.webp"
+import protoboard from "../src/images/Protoboard.webp"
+import Desing3D from "../src/images/Desing3D.webp"
 
 export const projectsData = [
   {
@@ -126,7 +133,7 @@ Imagina una puerta automática que abre o cierra el paso de la corriente con só
 
 <div style="text-align: center; margin: 20px 0;">
   <img src="${mosfetImg}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
-  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 3: MOSFET NMOS</p>
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 4: MOSFET NMOS</p>
 </div>
 
 
@@ -144,7 +151,10 @@ Garantiza que la corriente que alimenta el Op-Amp sea estable y simétrica.
 
 *Analógico a un equipo de reparto que mete la misma cantidad de agua en dos tuberías idénticas.*
 
-<!-- [Insertar esquema simplificado del espejo de corriente] -->
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${espejo}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 5: Espejo de Corriente</p>
+</div>
 
 ### Etapa diferencial
 
@@ -152,7 +162,10 @@ Compara dos señales y amplifica únicamente la diferencia (tu voz), cancelando 
 
 *Funciona como dos micrófonos midiendo el mismo sonido ambiente; al restarlos, desaparece el ruido compartido.*
 
-<!-- [Insertar captura de forma de onda: dos señales opuestas y su resultado diferencial] -->
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${parDiferencial}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 6: Par Diferencial </p>
+</div>
 
 ### Compensación del lazo
 
@@ -171,19 +184,30 @@ Ajusta la “velocidad” de reacción del amplificador para evitar que oscile o
 
 ### Simulación en software
 
-Probamos el circuito en MATLAB/Simulink para verificar ganancias, estabilidad y respuesta en frecuencia.
+Probamos el circuito en LTSpice para verificar ganancias, estabilidad y respuesta en frecuencia.
 
 *Empleamos modelos precisos para anticipar el comportamiento real antes del prototipo físico.*
 
-<!-- [Insertar captura de pantalla de la simulación en Simulink mostrando respuesta en frecuencia y curvas de ganancia] -->
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${esquematico}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 7: Esquematico Final</p>
+</div>
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${ganancia}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 8: Ganancia </p>
+</div>
 
 ### Montaje en protoboard
 
-Con componentes reales: resistencias, Op-Amps, MOSFETs y condensadores.
+Con componentes reales: resistencias, MOSFETs y condensadores.
 
 *Permite validar el funcionamiento práctico y ajustar valores en tiempo real.*
 
-<br> <!-- [Insertar foto del protoboard con los componentes montados] -->
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${protoboard}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 9: Protoboard</p>
+</div>
 
 ### Diseño de PCB
 
@@ -191,8 +215,10 @@ Finalmente pasamos a una placa de circuito impreso para robustez y confiabilidad
 
 *Optimiza el trazado de pistas y reduce ruido para un rendimiento óptimo.*
 
-<br> <!-- [Insertar imagen de la PCB, vista esquemática y vista 3D] -->  
-
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${Desing3D}" alt="Figura 3: Op-Amp" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 10: Diseño 3D PCB</p>
+</div>
         `,
       },
       {
@@ -206,8 +232,6 @@ Finalmente pasamos a una placa de circuito impreso para robustez y confiabilidad
 Muy cercana al valor teórico.
 
 *Como seguir una receta al pie de la letra y obtener el mismo sabor esperado.*
-
-<br> <!-- [Insertar tabla comparativa de valores teóricos y medidos] -->
 
 ### Ruido residual
 
@@ -237,6 +261,8 @@ Prácticamente imperceptible en un entorno de oficina normal.
 **Reducir drásticamente el ruido de fondo gracias a la etapa diferencial.**
 
 *Como usar auriculares con cancelación activa que sólo dejan pasar tu voz.*
+
+En la próxima etapa, completaremos el montaje del circuito amplificador de audio, integrando circuitos adicionales para garantizar un sonido profesional. Simultáneamente, finalizaremos el diseño de la carcasa.
 
 <br> <!-- [Insertar gráfico de nivel de ruido comparativo] -->  
 
@@ -421,7 +447,7 @@ function Home() {
           <h2 className="md:text-4xl font-bold text-slate-50 max-w-3xl">
             Regresamos La Voz a Tu Micrófono
           </h2>
-          <PrimaryButton>Contáctanos</PrimaryButton>
+          <PrimaryButton to="/contact">Contáctanos</PrimaryButton>
         </Container>
       </section>
 
@@ -622,7 +648,6 @@ function Contact() {
           <p className="text-slate-300 max-w-xl mb-6">
             Deneb se especializa en la reparación de micrófonos profesionales, garantizando un sonido de máxima calidad para sus grabaciones y actuaciones.
           </p>
-          <PrimaryButton>Contáctanos</PrimaryButton>
         </Container>
       </section>
 
