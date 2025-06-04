@@ -71,7 +71,7 @@ import ganancia from "../src/images/Ganancia.webp"
 import esquematico from "../src/images/EsquematicoFinal.webp"
 import protoboard from "../src/images/Protoboard.webp"
 import Desing3D from "../src/images/Desing3D.webp"
-
+import PreAmplificador2 from "../src/images/Preamplificador.png"
 export const projectsData = [
   {
     id: 1,
@@ -272,50 +272,100 @@ En la próxima etapa, completaremos el montaje del circuito amplificador de audi
       
     ],
   },
-  {
-    id: 2,
-    title: "Construcción Pre-Amplificador de Audio",
-    desc: "Caso de estudio de modificación estética y acústica de un micrófono de condensador moderno.",
-    img: PreAmplificadorImg,
-    sections: [
-      {
-        id: "resumen",
-        heading: "Resumen del Proyecto",
-        content: `
-## Resumen del Proyecto
+ {
+  "id": 2,
+  "title": "Construcción de un Pre-Amplificador de Audio: Diario de Diseño",
+  "desc": "Un caso de estudio detallado que documenta el diseño, prototipado y construcción de un pre-amplificador de audio versátil, desde la concepción teórica y la simulación, hasta la solución final del circuito y el diseño del producto.",
+  "img": PreAmplificadorImg,
+  "sections": [
+    {
+      "id": "resumen",
+      "heading": "Conceptos Iniciales y Objetivos",
+      "content": `
+## Primeros Pasos del Proyecto
 
-Objetivos de la modificación, requisitos del cliente y alcance del trabajo realizado.
-        `,
-      },
-      {
-        id: "circuito",
-        heading: "Rediseño del Circuito",
-        content: `
-## Rediseño del Circuito
+Un pre-amplificador es, en esencia, un dispositivo que toma una señal eléctrica débil y la amplifica para que pueda ser procesada por otros equipos. Antes de diseñar, se establecieron las etapas fundamentales y los objetivos clave.
 
-Adición de filtros selectivos y modificación de la polarización para mejorar la sensibilidad.
-        `,
-      },
-      {
-        id: "acabado",
-        heading: "Acabado Estético",
-        content: `
-## Acabado Estético
+### Etapas de un Pre-Amplificador de Micrófono:
+* **Etapa de Entrada:** Adapta la impedancia entre el micrófono y el circuito.
+* **Etapa de Ganancia:** Amplifica la señal a un nivel más útil, idealmente con un control ajustable.
+* **Etapa de Ecualización y Filtrado (Opcional):** Puede incluir filtros para mejorar la calidad del audio.
+* **Control de Volumen:** Permite ajustar el nivel de la señal antes de la salida.
+* **Etapa de Salida:** Prepara la señal para ser entregada a otros dispositivos, como una interfaz de audio.
 
-Aplicación de pintura electrostática y grabado láser personalizado para branding del estudio.
-        `,
-      },
-      {
-        id: "pruebas",
-        heading: "Pruebas de Calidad",
-        content: `
-## Pruebas de Calidad
+<div style="text-align: center; margin: 20px 0;">
+  <img src="${PreAmplificador2}" alt="Videoconferencia" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #64748b;" />
+  <p style="color: #94a3b8; font-size: 14px; margin-top: 8px;">Figura 1: Problemática común en videoconferencias</p>
+</div>
 
-Ensayos de ruido de fondo, respuesta transitoria y verificación de compatibilidad con interfaces.
-        `,
-      },
-    ],
-  },
+### Consideraciones de Desarrollo:
+* **Compatibilidad:** El circuito debía adaptarse a diferentes tipos de micrófonos, como dinámicos, de condensador y electret.
+* **Ganancia Requerida:** Se necesitaba una ganancia considerable y ajustable, de entre 40 a 60 dB, para levantar las señales débiles de los micrófonos.
+* **Calidad de Audio:** Se priorizó una alta relación señal-ruido (SNR) y una respuesta en frecuencia optimizada para la voz humana (80 Hz a 6 kHz). Para esto, se consideró el uso de filtros pasa-altas para eliminar ruidos de baja frecuencia.
+`
+    },
+    {
+      "id": "circuito",
+      "heading": "El Viaje del Diseño: De lo Discreto a lo Integrado",
+      "content": `
+## El Viaje del Diseño: De lo Discreto a lo Integrado
+
+El proyecto atravesó varias fases de diseño, comenzando con la ambiciosa meta de construir un amplificador operacional (Op-Amp) desde cero.
+
+### Intento 1: El Op-Amp Discreto con MOSFETs
+Se decidió inicialmente usar transistores MOSFET (2N7000 y BS250) por su alta impedancia de entrada y eficiencia. El proceso comenzó con la simulación en LTSPICE:
+1.  **Espejo de Corriente:** Se diseñó y simuló la primera etapa para la polarización, obteniendo una corriente de 0.589 mA. Sin embargo, el montaje físico en protoboard arrojó un valor diferente (720.1 µA), una discrepancia normal debido a factores del mundo real.
+2.  **Par Diferencial:** Se construyó la etapa del par diferencial. Las simulaciones mostraron un comportamiento ideal, con señales amplificadas y desfasadas 180 grados como se esperaba.
+3.  **El Problema:** En la práctica, el montaje físico falló. Se observaron corrientes desiguales en las ramas del par diferencial, lo que causaba una ganancia asimétrica.
+4.  **La Solución:** Tras intentos fallidos de ajuste, se propuso usar una fuente de alimentación dual (+5V / -5V). Esto eliminó la necesidad de un offset de VCM, que se identificó como una posible causa del problema, y estabilizó el circuito con éxito.
+
+### Un Pivote Inteligente: Creando una Fuente Dual
+Una vez validado el Op-Amp discreto en una PCB, el equipo decidió darle un uso práctico e innovador dentro del proyecto. En lugar de usarlo para la señal de audio, se utilizó para convertir una fuente simple de 12V en una fuente dual de +6V y -6V, necesaria para polarizar las etapas siguientes del pre-amplificador. Se configuró como un seguidor de tensión (buffer) a la salida de un divisor de voltaje, creando una referencia de tierra virtual estable. Las mediciones físicas confirmaron el éxito del diseño, obteniendo +6.058V y -5.909V.
+
+### Intento 2: El Circuito con un Op-Amp Integrado
+Para la etapa principal de ganancia y filtrado, se optó por un diseño más robusto usando el amplificador operacional **NE5532**, conocido por su buen rendimiento en audio.
+* **Etapa de Ganancia:** Se diseñó un circuito con ganancia variable usando un potenciómetro. Las pruebas en protoboard fueron exitosas, mostrando una clara amplificación de la señal de entrada.
+* **Etapa de Filtrado:** Para maximizar la calidad del audio, se añadió un filtro pasabanda en serie, compuesto por un filtro pasa-altas y uno pasa-bajas. Las pruebas determinaron frecuencias de corte de **139 Hz** para el pasa-altas y **3.6 kHz** para el pasa-bajas, ideales para la vo.
+`
+    },
+    {
+      "id": "acabado",
+      "heading": "Del Prototipo al Producto Final",
+      "content": `
+## Del Prototipo al Producto Final
+
+El desarrollo implicó un extenso trabajo de prototipado en breadboards, seguido del diseño y fabricación de placas de circuito impreso (PCB) para obtener un producto final robusto y profesional.
+
+### Prototipos y PCBs
+Se crearon múltiples montajes en protoboard para cada etapa del circuito. Una vez que el funcionamiento fue validado, se procedió a diseñar las PCBs. Se fabricaron dos placas principales:
+1.  Una PCB para el Op-Amp discreto que finalmente se usó como fuente de alimentación dual.
+2.  Una PCB para el circuito principal de pre-amplificación y filtrado.
+
+### Diseño de la Carcasa 3D
+Para contener los circuitos, se diseñó una carcasa a medida utilizando el software **FreeCAD**. Esto permitió planificar la disposición de los conectores y controles para un acabado profesional.
+`
+    },
+    {
+      "id": "pruebas",
+      "heading": "Pruebas, Desafíos y la Solución Definitiva",
+      "content": `
+## Pruebas, Desafíos y la Solución Definitiva
+
+Las pruebas finales revelaron desafíos que condujeron a una última revisión del diseño, culminando en un circuito optimizado y altamente funcional.
+
+### Pruebas y Complicaciones Finales
+La PCB de la fuente dual funcionó a la perfección, entregando voltajes estables de +5.98V y -6.12V. Sin embargo, la PCB del circuito principal presentó una cantidad de ruido excesiva. Se cree que esto fue causado por complicaciones durante la soldadura, donde parte del cobre se dañó, afectando las conexiones.
+
+### La Solución Final Optimizada
+A raíz de estos problemas, el grupo optó por rediseñar la solución final, integrando todo el aprendizaje en un único circuito robusto y versátil. Este diseño final es una clase magistral de ingeniería de audio:
+* **Entrada Inteligente:** Usa un conector TRS de 3.5mm compatible con cables mono y estéreo. Un interruptor permite activar la alimentación "bias" (a través de una resistencia de 4.7kΩ) para micrófonos electret, o desactivarla para micrófonos dinámicos].
+* **Fuente Simple, Operación Dual:** Para usar el Op-Amp **TL072** con una sola fuente de poder (ej. 9V), se crea una **tierra virtual** a 4.5V usando un divisor de tensión (R3, R4). Un condensador (C2) filtra esta referencia para mantenerla ultra estable y libre de ruido.
+* **Ganancia Controlada y Estable:** La ganancia es ajustable mediante un potenciómetro de 470kΩ, permitiendo una amplificación de más de 100x. Se incluye una resistencia de ganancia mínima (RF_Min) que asegura que la ganancia nunca sea menor a 1x, evitando la inestabilidad.
+* **Acoplamiento y Terminación:** Condensadores de acoplamiento en la entrada (C1) y salida (C3) bloquean cualquier componente de corriente continua (DC), dejando pasar únicamente la señal de audio pura. El segundo amplificador no utilizado en el chip TL072 se configura como un seguidor de voltaje y se conecta a la tierra virtual, una práctica estándar para "apagarlo" de forma segura y prevenir que introduzca ruido.
+`
+    }
+  ]
+},
 ];
 
 /* -------------------------------------------------------------------------- */
